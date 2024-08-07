@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Engine About</title>
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+    <div class="page">
+        <div id="header">
+            <h1 class="pageTitle">GAME ENGINE</h1>
+        </div>
+        <div id="navbar">
+            <ul>
+                <li>PROJECTS</li>
+                <li>CV</li>
+                <li>CONTACT</li>
+            </ul>
+        </div>
+        <h2 style="display: inline; font-size: 35px;">Entity Component System</h2>
+        <img id="geGif" src="Gifs/GameEngineTest.gif">
+        <p>This game engine was built with C# and uses OpenGL for graphics and
+            OpenTK for input. The engine has multiple systems and managers
+            including audio, collision, physics, and rendering systems, and entity, input,
+             scene, and resource managers. Also, I made a game using the game engine.
+            The game includes a maze were multiple planets are following
+             the player and if they come into contact, the player loses a life.
+            The player can shoot the planets and travel around the maze and 
+             pickup multiple "power-ups" to help survive in the maze.
+        </p>
+        <p>
+            The structure of the game engine follows an Entity Component System (ECS) design pattern.
+             This means that everything in the game is an entity, which is essentially a container for components.
+            Components are simple data containers that store attributes or states, 
+            such as position, velocity, or health. Systems are the logic that processes these components
+            and perform actions based on the data that the compnents hold.
+        </p>
+    </div>
+</body>
+</html>

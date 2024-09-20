@@ -36,7 +36,7 @@
             This means that everything in the game is an entity, which is essentially a container for components.
             Components are simple data containers that store attributes or states, 
             such as position, velocity, or health. Systems are the logic that processes these components
-            and perform actions based on the data that the compnents hold.
+            and perform actions based on the data that the components hold.
             </p>
             <img id="geGif" src="Gifs/GameEngineTest.gif">
 
@@ -73,7 +73,7 @@
                 </div>
             </div>
             An entity's primary function is to hold components. They also hold a name and a mask which tells the systems
-            what components the entities have. All entities hold a number of compnents which have data associated with them which the systems can use to
+            what components the entities have. All entities hold a number of components which have data associated with them which the systems can use to
             do calculations relating to the function of the system. For example, all enemy entities have a transform
             component which holds the data for the position, rotation and scale of the entity. They also have a collision
             component, specifically a collision sphere component which inherits from a base collision component class.
@@ -97,8 +97,8 @@
         </div>
         <h3>Managers</h3>
         <div class="font-size-to-window-size">
-            The Managers in the game engine should only hold data like the collision manager with the collision manifold
-            for collisions. And be able to manipulate the held data like the entity manager being able to find an entity 
+            The Managers in the game engine should only hold data, like the collision manager with the collision manifold
+            for collisions, and be able to manipulate the held data, like the entity manager being able to find an entity 
             given a name. While building the collision manager for 
             the game engine I thought it would be best to only record the collisions and not implement any collision
             resolutions because that would be game specific, therefore I thought to make the collision manager abstract

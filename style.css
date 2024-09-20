@@ -82,7 +82,7 @@ div{
     font-family: "Poppins", sans-serif;
     font-weight: bold;
     font-style: normal;
-    font-size: max(1.65vw,17px);
+    font-size: max(1.65vw,14.5px);
     height: auto;
     width: 35vw;
     text-align: center;
@@ -160,4 +160,8 @@ div{
 .font-size-to-window-size{
     font-size: max(1.1vw,18px)
 }
-
+#footer{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 3 columns */
+    gap: 20px;
+}

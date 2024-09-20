@@ -9,7 +9,6 @@ body{
     overflow-y: scroll;
     margin: 0;
     padding: 0;
-
 }
 .page{
     width: 70%;
@@ -18,13 +17,11 @@ body{
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 50px;
-    padding-top: 0;
+    padding-top: 20px;
     margin-top: 0;
     background-color: rgb(90, 90, 90);
     border-left: 2px solid black;
     border-right: 2px solid black;
-    
-
 }
 #header {
     padding-top: 10px;
@@ -33,13 +30,13 @@ body{
     padding-left: 3px;
 }
 #name{
-    font-size: 16pt;
+    font-size: max(2vw,20px);
     font-weight: bold;
     border-right: 1px solid black;
     padding-right: 10px;
 }
 #subtitle{
-    font-size: 12pt;
+    font-size: max(1.5vw,17px);
     font-weight: bold;
     padding-left: 10px;
 }
@@ -51,6 +48,7 @@ div{
     padding-top: 5px;
     padding-bottom: 5px;
     margin: 3px;
+    font-size: max(1.2vw,19px);
 }
 #navbar ul{
     list-style-type: none;
@@ -61,6 +59,9 @@ div{
     display: inline;
     cursor: pointer;
     margin-right: 22px;
+}
+#navbar li:hover{
+    color: black;
 }
 .landing-container{
     height: calc(100vh - 69px);
@@ -76,7 +77,21 @@ div{
     background-size: 100% 100%;
     border: 2px solid black;
 }
-
+#landing-text{
+    position: absolute;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    font-size: max(1.65vw,17px);
+    height: auto;
+    width: 35vw;
+    text-align: center;
+    z-index: 2;
+    color: white;
+    background-color: rgba(73, 73, 73, 0.685);
+    outline: 3px solid black;
+    padding: 20px;
+}
 .gallery img {
     width: 100%; 
     height: 100%;
@@ -84,14 +99,13 @@ div{
 .gallery {
     border: 1px solid black;
     margin: 5%;
-    width: calc(40% - 12px);
+    /* width: calc(40% - 12px); */
     height: auto; 
     box-sizing: border-box;
     cursor: pointer;
     text-decoration: none;
     color: inherit;
 }
-
 .gallery:hover{
     border-color: white;
 }
@@ -104,9 +118,13 @@ div{
 
 }
 .projects-container {
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between; 
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+    
 }
 .pageTitle{
     font-size: 50px;
@@ -114,22 +132,32 @@ div{
     margin-bottom: 0;
 }
 #geGif{
-    float: right;
+    float:inline-end;
     margin: 5px;
+    width: 50%;
 }
 
-#landing-text{
-    position: absolute;
-    font-family: "Poppins", sans-serif;
-    font-weight: bold;
-    font-style: normal;
-    font-size: x-large;
-    height: auto;
-    width: 500px;
-    text-align: center;
-    z-index: 2;
-    color: white;
-    background-color: rgba(73, 73, 73, 0.685);
-    outline: 3px solid black;
-    padding: 20px;
+#entityImgContainer {
+    float:right;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 3 columns */
+    gap: 20px; /* space between grid items */
+    text-align: center; /* center text and images */
+    margin-left: 5px;
 }
+
+.entity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.entity img {
+    max-width: 100%; /* make images responsive */
+    height: auto;
+}
+
+.font-size-to-window-size{
+    font-size: max(1.1vw,18px)
+}
+

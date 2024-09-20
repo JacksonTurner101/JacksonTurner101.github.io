@@ -4,46 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PCG About</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="StyleSheets/PCGStyle.css" />
 
 </head>
 <body>
     <div class="page">
         
         <div id="header">
-            <h1 class="pageTitle">PROCEDURAL TERRAIN GENERATOR</h1>
+            <h1 class="pageTitle" style="font-size: max(3vw,35px);">PROCEDURAL TERRAIN GENERATOR</h1>
         </div>
         <div id="navbar">
             <ul>
-                <li>PROJECTS</li>
-                <li>CV</li>
-                <li>CONTACT</li>
+                <li><a href="index.html#projects" style="text-decoration: none; color: inherit;">PROJECTS</a></li>
+                <li><a href="index.html#contact" style="text-decoration: none; color: inherit;">CV & CONTACT</a></li>
+
             </ul>
         </div>
-        <h2 style="display: inline; font-size: 35px;">PCG PROJECT</h2>
-        <img id="geGif" src="Gifs/PCG_Short.gif">
-        <p>This project included making a terrain generator that creates procedually generated
-            collidable terrain. The generator uses perlin noise for the terrain. There is a height
-            map which determines the colour of the terrain based of the height. There is also a 
-            falloff map which gradually lessens the impact of the terrain generator which makes islands
-            instead of full worlds of terrain. In order to make the generator more efficient there is 
-            also a level of distance setting which can determin how many vertices are used for the terrain.
-            Higher vertices are used for terrain closer to the user and gradually less and less vertices are used.
-        </p>
-        <p>The procedural terrain generator can be edited to have the effect that the user desires. 
-            There are options for the height multiplier making the points on the terrain higher or
-            lower. There is an option to choose the number of octaves used in the calculation for the 
-            perlin noise. More octaves means that there are more layers of the perlin noise used in the 
-            calculation. With this comes the option to choose how much each octave affects the final perlin
-            noise output. A high number of octaves with each octave having a big affect output terrain that
-            is much more jagged and as a result looks a lot more natural and random looking.
-            ------------RECORD CHANGING THE NUM OF OCTAVES AND HOW MUCH OCTAVES AFFECT THE TERRAIN-------------
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed ullam ex, assumenda fugit corrupti,
-             quisquam harum alias, fuga provident illum sint. Est minima, natus maiores voluptatem rerum ipsam
-              obcaecati officia?
-        </p>
+        <h2 style="display: inline; font-size: max(2vw,26px);">PCG PROJECT</h2>
+        <div id="IntroSection">
+            <p> <br>
+                This project included making a terrain generator that creates procedually generated
+                collidable terrain. The generator uses perlin noise for the terrain. There is a height
+                map which determines the colour of the terrain based of the height. There is also a 
+                falloff map which gradually lessens the impact of the terrain generator which makes islands
+                instead of full worlds of terrain. In order to make the generator more efficient there is 
+                also a level of distance setting which can determin how many vertices are used for the terrain.
+                Higher vertices are used for terrain closer to the user and gradually less and less vertices are used.
+            </p>
+            <img id="geGif" src="Gifs/PCG_Short.gif">
+        </div>
+
+        <div id="InteractiveOctaveContainer">
+            <div><br>
+                The procedural terrain generator can be edited to have the effect that the user desires. 
+                There are options for the height multiplier making the points on the terrain higher or
+                lower. There is an option to choose the number of octaves used in the calculation for the 
+                perlin noise. More octaves means that there are more layers of the perlin noise used in the 
+                calculation. These layers influence the final look of the terrain by merging all the octaves
+                together. The amount that each octave influences the terrain is called the persistence, which 
+                can also be adjusted with the terrain generator. 
+                
+            </div>
+        
+            <div class="slider-container">
+                
+                <p style="text-align: center;">Number of Octaves: <span id="octaveValue">1</span><input type="range" id="octaveSlider" min="1" max="5" value="1" oninput="updateImage()" /></p>
+                <img id="octaveImage" src="Images/PCGImages/Octave1.JPG" alt="Octave Image">
+            </div>
+        </div>
+        
+        <script>
+            function updateImage() {
+                const slider = document.getElementById('octaveSlider');
+                const octaveValue = document.getElementById('octaveValue');
+                const image = document.getElementById('octaveImage');
+                
+                // Get current slider value
+                const value = slider.value;
+                
+                // Update the text showing the selected octave
+                octaveValue.textContent = value;
+                
+                // Change the image source based on the slider value
+                image.src = `Images/PCGImages/Octave${value}.JPG`;
+            }
+        </script>
+        
+        
     </div>
 </body>
 </html>

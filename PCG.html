@@ -5,54 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PCG About</title>
     <link rel="stylesheet" href="StyleSheets/PCGStyle.css" />
-
 </head>
 <body>
     <div class="page">
-        
         <div id="header">
-            <h1 class="pageTitle" style="font-size: max(3vw,35px);">PROCEDURAL TERRAIN GENERATOR</h1>
+            <span id="name">PROCEDURAL TERRAIN GENERATOR</span>
+            <div id="subtitle">Generating Terrain with Perlin Noise</div>
         </div>
+
         <div id="navbar">
             <ul>
-                <li><a href="index.html#projects" style="text-decoration: none; color: inherit;">PROJECTS</a></li>
-                <li><a href="index.html#contact" style="text-decoration: none; color: inherit;">CV & CONTACT</a></li>
-
+                <li><a href="index.html#projects">PROJECTS</a></li>
+                <li><a href="index.html#contact">CV & CONTACT</a></li>
             </ul>
         </div>
-        <h2 style="display: inline; font-size: max(2vw,26px);">PCG PROJECT</h2>
-        <div id="IntroSection">
-            <p> <br>
-                This project included making a terrain generator that creates procedurally generated
-                collidable terrain. The generator uses perlin noise for the terrain. There is a height
-                map which determines the colour of the terrain based off the height. There is also a 
-                fall-off map which gradually lessens the impact of the terrain generator which makes islands
-                instead of full worlds of terrain. In order to make the generator more efficient there is 
-                also a level of distance setting which can determin how many vertices are used for the terrain.
-                Higher vertices are used for terrain closer to the user and gradually less and less vertices are used.
-            </p>
-            <img id="geGif" src="Gifs/PCG_Short.gif">
+
+        <div class="section-container">
+            <div class="hero" style="background: none;">
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <h2 class="font-size-to-window-size" style="text-align: center;">Procedural Terrain Generator</h2>
+                    <p class="font-size-to-window-size" style="max-width: 900px; color: white;">
+                        This project involves a terrain generator that creates procedurally generated, collidable terrain. The generator uses Perlin noise for the terrain and features a height map that determines terrain color based on height. Additionally, a fall-off map reduces terrain impact, forming islands instead of full worlds. Efficiency is enhanced through a level of distance setting that adjusts the number of vertices used based on proximity to the user.
+                    </p>
+                </div>
+            </div>
         </div>
 
-        <div id="InteractiveOctaveContainer">
-            <div><br>
-                The procedural terrain generator can be edited to have the effect that the user desires. 
-                There are options for the height multiplier making the points on the terrain higher or
-                lower. There is an option to choose the number of octaves used in the calculation for the 
-                perlin noise. More octaves means that there are more layers of the perlin noise used in the 
-                calculation. These layers influence the final look of the terrain by merging all the octaves
-                together. The amount that each octave influences the terrain is called the persistence, which 
-                can also be adjusted with the terrain generator. 
-                
-            </div>
-        
-            <div class="slider-container">
-                
-                <p style="text-align: center;">Number of Octaves: <span id="octaveValue">1</span><input type="range" id="octaveSlider" min="1" max="5" value="1" oninput="updateImage()" /></p>
-                <img id="octaveImage" src="Images/PCGImages/Octave1.JPG" alt="Octave Image">
+        <div class="section-container">
+            <h3 class="section-header" style="text-align: center;">Customizing the Terrain</h3>
+            <div class="section-content">
+                <p>
+                    The procedural terrain generator offers several customization options, allowing users to tailor the terrain to their needs. Key features include a height multiplier to adjust terrain height, and a setting to control the number of octaves in the Perlin noise calculation. The persistence of each octave can also be modified to influence the terrain's appearance.
+                </p>
+                <img src="Gifs/PCG_Short.gif" alt="Terrain Generator Preview" style="width: 80%; margin-left: 10%; margin-top: 20px;">
             </div>
         </div>
-        
+
+        <!-- Octave Customization Section -->
+        <div class="section-container">
+            <h3 class="section-header" style="text-align: center;">Octave Customization</h3>
+            <div class="section-content">
+                <p>
+                    The number of octaves used in the terrain generation affects the visual complexity of the terrain. More octaves introduce more layers of noise, creating more detailed and varied landscapes. The persistence setting controls the intensity of each octave's effect, allowing further fine-tuning of the terrain's features.
+                </p>
+
+                <div class="slider-container" style="text-align: center;">
+                    <p>Number of Octaves: <span id="octaveValue">1</span></p>
+                    <input type="range" id="octaveSlider" min="1" max="5" value="1" oninput="updateImage()" />
+                    <img id="octaveImage" src="Images/PCGImages/Octave1.JPG" alt="Octave Image" style="margin-top: 20px; max-width: 100%; height: auto; margin-top: 20px;">
+                </div>
+            </div>
+        </div>
+
         <script>
             function updateImage() {
                 const slider = document.getElementById('octaveSlider');
@@ -69,8 +73,12 @@
                 image.src = `Images/PCGImages/Octave${value}.JPG`;
             }
         </script>
-        
-        
+
+        <!-- Optional Footer -->
+        <div id="footer">
+            <div>&copy; 2025 Jackson Turner</div>
+            <div><a href="index.html#contact">Get in touch</a></div>
+        </div>
     </div>
 </body>
 </html>

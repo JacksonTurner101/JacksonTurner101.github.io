@@ -5,78 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Particle Simulations About</title>
     <link rel="stylesheet" href="style.css" />
-
 </head>
 <body>
     <div class="page">
+        <!-- Header Section -->
         <div id="header">
-            <h1 class="pageTitle">PARTICLE SIMULATIONS</h1>
+            <span id="name">PARTICLE SIMULATIONS</span>
+            <div id="subtitle">Parallel and Concurrent Programming</div>
         </div>
+
+        <!-- Navigation Bar -->
         <div id="navbar">
             <ul>
-                <li><a href="index.html#projects" style="text-decoration: none; color: inherit;">PROJECTS</a></li>
-                <li><a href="index.html#contact" style="text-decoration: none; color: inherit;">CV & CONTACT</a></li>
-
+                <li><a href="index.html#projects">PROJECTS</a></li>
+                <li><a href="index.html#contact">CV & CONTACT</a></li>
             </ul>
         </div>
-        <div style="height: auto; clear: both; overflow: auto;">
-            <h2 style="display: inline; font-size: 35px;">Parallel and Concurrent Programming </h2>
-            <p class="font-size-to-window-size">This project included using the CPU and GPU to create a particle simulation.
-                Essentially, there is a spray can spraying paint particles onto a piece of paper.
-                After the simulation has finished there is an output for the paper that the 
-                spray can was aiming at. One simulation is on the CPU using the programming language
-                Rust. There is another simulation on the GPU using CUDA. Both simulations output a
-                BMP file which shows the paper of the execution of the particle simulations.
-            </p>
-        </div>
 
-        <div style="display: grid; grid-template-columns: repeat(2, 1fr);">
-            <div>
-                <div style="font-weight: bolder; font-size: max(1.2vw,19px)">Cuda</div>
-                <div class="font-size-to-window-size">In order to create this particle simulation that uses the GPU, 
-                    I decided to use NVIDIA's parallel computing architecture, CUDA. This allowed me to write
-                    kernels (functions that run on the GPU) enabling the use of thousands of threads to simulate the
-                    particles efficiently in parallel.
-                </div>
-                <div class="font-size-to-window-size" style="margin-top: 10px;">There is an output BMP image for an output image for the simulation which shows the 
-                    piece of paper that the particles hit. The particles have a position where they start from and also have
-                    a downwards velocity aiming towards the paper. The kernels move and detect if the particles hit the paper.
-                    If the particles hit the paper, the place that the particles hit on the paper is colored red.
-                </div>
-                <img src="Images/ParticleSimImages/image.bmp" style="width: 80%; padding-left: 20%;">
-
-                <div class="font-size-to-window-size" style="margin-top: 10px;">A link to the github page for the Cuda particle simulator can be found
-                    <a href="https://github.com/JacksonTurner101/CudaParticleSimulation" target="_blank">here</a>
-                </div>
-            </div>
-            <div>
-                <div style="font-weight: bolder; font-size: max(1.2vw,19px)">Rust</div>
-                <div class="font-size-to-window-size">For the particle simulation using the Rust programming language, I used a producer/consumer
-                    design pattern. This means that the threads used can be a producer or consumer. A producer thread 
-                    makes the data for the consumer thread to use. I used the producer/consumer design pattern
-                    for firstly creating the particles and assigning them their values like position, velocity and 
-                    if they had collided with the paper. This would be an example of a producer thread. Next, I used another 
-                    thread for moving the particles. This thread would try to gain access of the particle, and if it
-                    could, then it would move the particle and check for collisions, then release the particle. This 
-                    would be an example of a consumer thread. In order to allow for multiple threads to access the 
-                    same data, I needed to implement locks and make them thread safe. A thread would try to gain access
-                    to a particle and if the particle was already in use by another thread, it would wait until the 
-                    particle was released from the other thread and when it was released it would try to gain access to
-                    the particle again. 
-
-                    <div class="font-size-to-window-size" style="margin-top: 10px;">There is an output BMP image for an output image for the simulation which shows the 
-                        piece of paper that the particles hit. The particles have a random angle at which they are 
-                        sprayed out of the can in order to randomly hit the paper much like a real spray can would 
-                        spray.
-                    </div>
-                    <img src="Images/ParticleSimImages/paper.bmp" style="width: 80%; padding-left: 20%;">
-
-                    <div class="font-size-to-window-size" style="margin-top: 10px;">A link to the github page for the Rust particle simulator can be found
-                        <a href="https://github.com/JacksonTurner101/RustParticleSimulation" target="_blank">here</a>
-                    </div>
+        <div class = "section-container">
+            <div class="hero" style="background: none;">
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <h2 class="font-size-to-window-size" style="text-align: center;">Particle Simulation: CPU & GPU</h2>
+                    <p class="font-size-to-window-size" style="max-width: 900px; color: white;">
+                        This project involved using the CPU and GPU to simulate particles. The simulation mimics a spray can spraying paint particles onto a piece of paper. One simulation runs on the CPU using Rust, and another runs on the GPU using CUDA. Both simulations output a BMP file, showing the result of the particle simulation.
+                    </p>
                 </div>
             </div>
         </div>
+        <!-- CUDA Section -->
+        <div class="section-container">
+            <h3 class="section-header;" style="text-align: center;">CUDA Simulation</h3>
+            <div class="section-content">
+                <p>
+                    To implement the GPU-based particle simulation, I used NVIDIA's CUDA architecture. By writing kernels, I was able to utilize thousands of threads to simulate particles in parallel efficiently.
+                </p>
+                <p>
+                    The simulation outputs a BMP image that shows the particles' interaction with the paper. Particles are assigned a starting position and a downward velocity, and if they hit the paper, the corresponding area turns red.
+                </p>
+                <img src="Images/ParticleSimImages/image.bmp" alt="CUDA Simulation" style="width: 80%; margin-left: 10%; margin-top: 20px;">
+                <p>
+                    You can access the GitHub repository for the CUDA particle simulation <a href="https://github.com/JacksonTurner101/CudaParticleSimulation" target="_blank">here</a>.
+                </p>
+            </div>
+        </div>
+
+        <!-- Rust Section -->
+        <div class="section-container">
+            <h3 class="section-header" style="text-align: center;">Rust Simulation</h3>
+            <div class="section-content">
+                <p>
+                    In the Rust implementation, I used the producer/consumer design pattern, where producer threads create the particles, and consumer threads move them and check for collisions. I implemented thread safety with locks to ensure that multiple threads could safely access the same particle data.
+                </p>
+                <p>
+                    The Rust simulation outputs a BMP image showing the particles sprayed from the can at random angles, simulating the behavior of a real spray can.
+                </p>
+                <img src="Images/ParticleSimImages/paper.bmp" alt="Rust Simulation" style="width: 80%; margin-left: 10%; margin-top: 20px;">
+                <p>
+                    You can access the GitHub repository for the Rust particle simulation <a href="https://github.com/JacksonTurner101/RustParticleSimulation" target="_blank">here</a>.
+                </p>
+            </div>
+        </div>
+
+        <!-- Optional Footer -->
+        <div id="footer">
+            <div>&copy; 2025 Jackson Turner</div>
+            <div><a href="index.html#contact">Get in touch</a></div>
+        </div>
+
     </div>
 </body>
 </html>
